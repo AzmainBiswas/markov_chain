@@ -1,0 +1,70 @@
+\documentclass[]{report}
+\usepackage{bookmark}
+\usepackage[utf8]{inputenc}
+\usepackage{authblk}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage[english]{babel}
+
+
+%% theorem, lemma, proof, etc. %%
+%% for unnumbed use \newtheorem* and delete section in [---] %%
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+%%% theorem %%
+
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{decorations.fractals}
+\usepackage{float}
+\usepackage{dsfont}
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    left=30mm,
+    right=30mm,
+    top=20mm,
+    bottom=20mm,
+}
+
+%%%% hyperref %%%%
+\usepackage{hyperref} % for link
+\hypersetup{
+    colorlinks=true,
+    allcolors=black,
+}
+%%% fancyhdr %%%% for footer and Hader of document
+\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\lhead{lest hand head} %% left Hader %%
+%\rhead{Measure Theory} %% right Hader %%
+\cfoot{\thepage} %% central footer %%
+
+\setlength{\headheight}{14.49998pt}
+
+%%% spacing in document %%%
+\usepackage{setspace}
+\onehalfspacing
+
+\title{hello}
+\author{Azmain Biswas}
+\date{April 2023}
+
+\begin{document}
+
+\maketitle
+
+\include{chap/chap_1}
+
+\end{document}
