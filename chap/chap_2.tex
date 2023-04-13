@@ -1,0 +1,23 @@
+\chapter{Markov Chain}
+
+\section{Difinition}
+
+\begin{definition}[Markov Chain]
+    A discrete time stochastic process $\{X_n,n=1,2,3,\ldots\}$ is defined to be \textit{Discrete Time Markov Chain} or simply \textit{Markov Chain} if it takes value in the state space $ \mathbf{S} $, and for every
+    $n\ge 0$ it satisfy the property
+    \begin{equation}
+        \label{markov property}
+         \mathbf{P}( X_{n+1} = j | X_n =i , X_{n-1} = i_{n-1}, \ldots, X_0 = i_0 ) = \mathbf{P}( X_{n+1} = j | X_n =i )
+    \end{equation}
+\end{definition}
+
+Unless otherwise mentioned we take the state space $ \mathbf{S} $ to be $\{ 1, 2, 3, \ldots\ \} $. 
+If $X_n = i $ we say that the process is in $i $th state at time $n$.
+In the definition \cref{markov property} may be interpreted as for Markov Chain, the conditional distribution of any future state $ X_{n+1} $, given the past states  $ X_0, X_1,\ldots, X_{n-1} $  and the present state $ X_n $, is independent of the past and only depend on the present state.
+This property is called \textit{Markovian Property}. In other word for markov chain predicting the future we only need information about the present state.
+
+\section{Homogeneous Markov Chain}
+
+\begin{definition}[Homogeneous Markov Chain]
+    We say a markov chain $ \{ X_n,n\ge 0 \} $ is homogeneous if $ \mathbf{P}(X_{n+1}=j|X_n=i)=\mathbf{P}(X_2=j|X_1=i) \ \forall n>0 $. 
+\end{definition}
