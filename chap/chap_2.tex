@@ -48,6 +48,37 @@ Then,
     \end{bmatrix}
 \]
 
+\begin{example}[Rain and sunny]
+    Suppose that whether it rains today depends on previous weather conditions only from the last two days. 
+    Specifically, suppose that if it has rained for the past two days, 
+    then it will rain tomorrow with probability 0.7; 
+    if it rained today but not yesterday, then it will rain tomorrow with probability 0.5; 
+    if it rained yesterday but not today, then it will rain tomorrow with probability 0.4; 
+    if it has not rained in the past two days, then it will rain tomorrow with probability 0.2.
+    
+    We can transform it into a Markov chain by letting the state on any day be determined by the weather conditions during both that day and 
+    the preceding one. For instance, we can say that the process is in
+
+    \begin{center}
+        State 0: if it rained both today and yesterday\\ 
+        State 1: if it rained today but not yesterday\\ 
+        State 2: if it rained yesterday but not today\\ 
+        State 3: if it rained neither today nor yesterday 
+
+    \end{center}
+
+    The it will be 4-state Markov chain whose transition matrix will be,
+    \[
+        P=
+        \begin{bmatrix} 
+            0.7 & 0 & 0.3 & 0 \\ 
+            0.5 & 0 & 0.5 & 0 \\ 
+            0 & 0.4 & 0 & 0.6 \\ 
+            0 & 0.2 & 0 & 0.8
+        \end{bmatrix} 
+    \]
+\end{example}
+
 \section{Chapman-Kolmogorov Equations}
 We have already defined the one step transition probabilities $ p_{ij} $. We now define the n-step transition probabilities $ p_{ij}^{n} $ 
 to be the probability that a process in state $i$ will be in state $j$ after $n$ additional transitions. i.e.
@@ -76,4 +107,108 @@ Hence, \cref{Chapman-Kolmogorov equation} can also written in matrix form,
 \[
     P^{n+m}=P^{n}*P^{m}
 \]
-Where $ P^{n} \& P^{m} $
+Where $ P^{n}\ \&\ P^{m} $ are the n-step and m-step transition matrix respectively.
+
+\begin{example}[Transition matrix of 4-state Markov chain]
+    Consider the 4-state
+    Markov chain depicted in \cref{4 step transition matrix example} When no probabilities are written over the
+    arrows, as in this case, it means all arrows originating from a given state are equally
+    likely. For example, there are 3 arrows originating from state 1, so the transitions
+    $1 \to 3$, $1 \to 2$, and $1 \to 1$ all have probability 1/3. Therefore the transition matrix of the chain is.
+
+    \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}[->, >=stealth, auto, very thick, node distance = 2cm, state/.style={circle, draw=black, fill=black!5, very thick, minimum size = 10mm}]
+            \node[state] (1) {$1$};
+            \node[state] (2) [below of=1] {$2$};
+            \node[state] (3) [below right of=2] {$3$};
+            \node[state] (4) [below left of=2] {$4$};
+
+            \path (1) edge [loop above] (1)
+                (1) edge []  (2)
+                (1) edge [bend left] (3)
+                (2) edge [bend right] (3)
+                (2) edge [] (4)
+                (3) edge [] (2)
+                (4) edge [bend left] (1)
+                (4) edge [loop left] (4);
+        \end{tikzpicture}
+        \caption{Example of A 4 state markov chain}
+        \label{4 step transition matrix example}
+    \end{figure}
+
+    \[
+        P=
+        \begin{bmatrix}
+            \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 \\
+            0 & 0 & \frac{1}{2} & \frac{1}{2} \\ 
+            0 & 1 & 0 & 0 \\ 
+            \frac{1}{2} & 0 & 0 & \frac{1}{2} 
+        \end{bmatrix}
+    \]
+    To compute the probability that the chain is in state 3 after 5 steps, starting at
+    state 1, we would look at the (1,3) entry of $ P^{5} $.
+    \[
+        P^5 =
+        \begin{bmatrix}
+            \frac{853}{3888} & \frac{509}{1944} & \frac{52}{243} & \frac{395}{1296} \\
+            \frac{173}{864} & \frac{85}{432} & \frac{31}{108} & \frac{91}{288} \\
+            \frac{37}{144} & \frac{29}{72} & \frac{1}{9} & \frac{11}{48} \\
+            \frac{499}{2592} & \frac{395}{1296} & \frac{71}{324} & \frac{245}{864} \\
+        \end{bmatrix}
+    \]
+    so, $ p^{5}_{13}=\mathbf{P}(X_{5}=3|X_{0}=1) = \frac{52}{243} $.
+\end{example}
+
+To get the marginal distributions of $X_0, X_1,...$ , we need to specify not just the
+transition matrix, but also the initial conditions of the chain. This can be done by
+setting the initial state $X_{0}$ to be a particular state, or by randomly choosing $X_0$
+according to some distribution. Let $(t_1, t_2,...,t_N)$ be the PMF of $X_{0}$ displayed as
+a vector, that is, $t_i = \mathbf{P}(X_0 = i)$. Then the marginal distribution of the chain at any time can be computed from the transition matrix.
+
+\begin{proposition}[Marginal Distribution of $ X_{n} $]
+    Define $ \mathbf{t} = (t_{1}, t_{2}, \ldots, t_{n})$ by $ t_{i}=\mathbf{P}(X_{0}=i) $, and view $ \mathbf{t} $ as a row vector.
+    Then the marginal distribution of $ X_{n} $ is given by the vector $ \mathbf{t}P^{n} $. That is the $ j $-th component of  $ \mathbf{t}P^{n} $ 
+    is $ \mathbf{P}(X_{n}=j) $.
+\end{proposition}
+\begin{proof}
+    By the law of total probability we get,
+
+    \begin{align*}
+        \mathbf{P}(X_{n}=j) &= \sum_{i=0}^{N} \mathbf{P}(X_{n},X_{0}=i)\\
+                            &= \sum_{i=0}^{N} \mathbf{P}(X_{0}=i)\mathbf{P}(X_{n}=j|X_{0}=i)  \\
+                            &= \sum_{i=0}^{N} t_{i}p^{n}_{ij} \\
+    \end{align*}
+    Which is the $ j $0th component of  $ \mathbf{t}P^{n} $.
+\end{proof}
+
+\begin{example}[Marginal distribution of 4-state Markov chain]
+    Again consider the 4-state Markov chain in \cref{4 step transition matrix example}. 
+    Suppose the initial conditions are $ \mathbf{t} = (1/4,1/4,1/4,1/4) $, Let $ X_{n} $ be the position of the chain at time $ n $. 
+    Then distribution of  $ X_{1} $ is
+    \begin{align*}
+        \mathbf{t}P &= \begin{bmatrix} \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & \frac{1}{4} \end{bmatrix} 
+        \begin{bmatrix}
+            \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 \\
+            0 & 0 & \frac{1}{2} & \frac{1}{2} \\ 
+            0 & 1 & 0 & 0 \\ 
+            \frac{1}{2} & 0 & 0 & \frac{1}{2} 
+        \end{bmatrix}\\
+                    &= \begin{bmatrix} \frac{5}{24} & \frac{1}{3} & \frac{5}{24} & \frac{1}{4} \end{bmatrix} 
+    \end{align*}
+    The marginal distribution of $ X_{5} $ is 
+    \begin{align*}
+        \mathbf{t}P^{5} &= \begin{bmatrix} \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & \frac{1}{4} \end{bmatrix}
+        \begin{bmatrix}
+            \frac{853}{3888} & \frac{509}{1944} & \frac{52}{243} & \frac{395}{1296} \\
+            \frac{173}{864} & \frac{85}{432} & \frac{31}{108} & \frac{91}{288} \\
+            \frac{37}{144} & \frac{29}{72} & \frac{1}{9} & \frac{11}{48} \\
+            \frac{499}{2592} & \frac{395}{1296} & \frac{71}{324} & \frac{245}{864} \\
+        \end{bmatrix}\\
+                        &= \begin{bmatrix}
+                            \frac{707}{3254} & \frac{472}{1619} & \frac{101}{486} & \frac{1469}{5184}
+                        \end{bmatrix} \\
+    \end{align*}
+\end{example}
+
+\section{Classification of states}
