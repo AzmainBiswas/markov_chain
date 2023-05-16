@@ -75,3 +75,66 @@ Now the question aeries is eigenvector corresponding to 1 is a probability vecto
             In this case, $ \{\pi_{j},j=0,1,\ldots\} $ is stationary distribution and there exist no other stationary distribution.
     \end{enumerate}
 \end{theorem}
+\begin{proof}
+    we will first proof (2),
+    we have,
+    \[
+        \sum_{j=0}^{M} p^{n}_{ij} \le \sum_{j=0}^{\infty} p^{n}_{ij} =1 \ \forall M.
+    \]
+    Letting $ n\to \infty $ we get,
+    \begin{align*}
+        \sum_{j=0}^{M} &\pi_{j}\le 1 \ \forall M.\\ 
+        \sum_{j=0}^{\infty} &\le 1.
+    \end{align*}
+    Now, 
+     \[
+         p^{n+1}_{ij} = \sum_{k=0}^{\infty} p^{n}_{ik}p_{kj}\ge \sum_{k=0}^{M} p_{ik}^{n}p_{kj} \ \forall M.
+    \]
+    Letting $ n\to \infty $ gives us,
+    \[
+        \pi_{j}\ge \sum_{k=0}^{M} \pi_{k}p_{kj} \ \forall M,
+    \]
+    i.e.
+    \[
+        \pi_{j}\ge \sum_{k=0}^{\infty} \pi_{k}p_{kj}, \ \forall j\ge 0.
+    \]
+    To show that the above is actually an equality, suppose the inequality is strict for some $ j $. Then we obtain,
+     \[
+        \sum_{j=0}^{\infty} \pi_{j}> \sum_{j=0}^{\infty} \sum_{k=0}^{\infty} \pi_{k} p_{jk} = \sum_{k=0}^{\infty} \pi_{k}\sum_{j=0}^{\infty} p_{kj} = \sum_{k=0}^{\infty} \pi_{k}.
+    \]
+    which is contradiction. Therefore,
+    \[
+        \pi_{j}=\sum_{k=0}^{\infty} \pi_{k}p_{kj}, \ \ \forall j,\ldots
+    \]
+    Potting $ p_{j}=\pi_{j}/\sum_{0}^{\infty} \pi_{k} $, we see that $ \{p_{j},j=0,1,2,\ldots\} $ is stationary distribution, and hence at least one 
+    stationary distribution exist. Now let $ \{p_{j},j=0,1,2,\ldots\} $ be any stationary distribution. Then if $ \{p_{j},j=0,1,2,\ldots\} $ is the probabolity
+    distribution of $ X_{0} $ then 
+    \begin{align*}
+        p_{j} &= \mathbf{P}(X_{n}=j) \\
+        &= \sum_{i=0}^{\infty} \mathbf{P}(X_{n}=j|X_{0}=i)\mathbf{P}(X_{0}=i) \\
+        &= \sum_{i=0}^{\infty} p^{n}_{ij}p_{i} \numberthis \label{4.3.2}
+    \end{align*}
+    Then, from \cref{4.3.2} we see,
+    \[
+        p_{j}\ge \sum_{i=0}^{M}p^{n}_{ij}p_{i} \ \ \forall M.
+    \]
+    Letting $ n $ and then $ M $ approach $ \infty $ we get,
+    \[
+        p_{j}\ge \sum_{i=0}^{\infty} \pi_{j}p_{i} = \pi_{j}.
+    \]
+    Now we show that $ p_{j}\le \pi_{j} $ use \cref{4.3.2} and that fact that $ p _{ij}^{n}\le 1 $ to obtain
+    \[
+        p_{j}\le \sum_{i=0}^{M} p^{n}_{ij}p_{i} + \sum_{i=M+1}^{\infty} p_{i} \ \forall M.
+    \]
+    and letting $ n\to \infty $ gives,
+    \[
+        p_{j}\le \sum_{i=0}^{M} \pi_{j}p_{i} + \sum_{i=M+1}^{\infty} p_{i} \ \forall M.
+    \]
+    Since $ \sum_{0}^{\infty} = 1 $, we obtain upon letting $ M\to \infty $ that
+    \begin{equation}
+        p_{j}\le \sum_{i=0}^{\infty} \pi_{j}p_{i} = \pi_{j}.
+    \end{equation}
+
+    If the state are transient or null recurrent and $ \{p_{j},j=0,1,2,\ldots\} $ is a stationary distribution, then \cref{4.3.2} hold and $ p_{ij}^{n}\to 0 $,
+    which is clearly impossible. Thus, for case (1), no stationary distribution exists and the proof is complete. 
+\end{proof}
