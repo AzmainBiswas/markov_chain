@@ -1,0 +1,77 @@
+\chapter{Stationary Probability}
+Consider a two-state Markov chain with transition probability matrix 
+\[
+    P=
+    \begin{bmatrix} 
+        0.35 & 0.65\\ 
+        0.89 & 0.11
+    \end{bmatrix} 
+\]
+Then 2-step transition matrix will be 
+\[
+    P^{2} = 
+    \begin{bmatrix}
+        0.7010  &  0.2990 \\ 
+        0.4094  &  0.5906 
+    \end{bmatrix} 
+\]
+Then 8-step transition matrix will be
+\[
+    P^{8} = 
+    \begin{bmatrix}
+        0.5810  &  0.4190\\ 
+        0.5737  &  0.4263 
+    \end{bmatrix} 
+\]
+Once again 12-state transition matrix is,
+\[
+    P^{12} = 
+    \begin{bmatrix}        
+        0.5782  &  0.4218\\ 
+        0.5776  &  0.4224
+    \end{bmatrix} 
+\]
+Note that The 8-step transition matrix is almost identical to 12-step transition matrix. So it seems that  $ p^{n}_{ij} $ is converging to some
+value as $ n\to \infty $ that is same for all $ i $. In other words, In other word it seems to exist a limiting probability that the process will be 
+in state  $ j $ after a large number of transitions, and this value is independent of initial state. This limiting probability is known as 
+stationary probability and the distribution  of $ X_{j}^{n} $ as $ n\to \infty $ is known as stationary distribution.
+
+State $ i $ is said to have  \textit{period} $ d $ if $ p^{n}_{ii} = 0 $ whenever $ n $ is not divisible by  $ d $, and  $ d $ is the largest
+integer with this property. A state with period 1 is said to be \textit{aperiodic}. We denote period of $ i $ by $ d(i) $.
+
+If state $i$ is recurrent, then it is said to be positive recurrent if, starting in state the expected time until the process returns to state $i$ 
+is finite. While there exist recurrent states that an not positive recurrent (such states are
+called null recurrent). Postie recurrent, aperiodic states are called \textit{ergodic}.
+
+\begin{definition}[Stationary Distribution]
+    \label{Stationary distribution}
+    A probability distribution $ \{p_{j},j\ge 0\} $ is called stationary for the Markov chain if 
+    \begin{equation}
+        \label{1st stationary distribution}
+        p_{j} = \sum_{i=0}^{\infty} p_{i}p_{ij},\ j \ge 0
+    \end{equation}
+    i.e. If $ \mathbf{t}=(p_{1},p_{2},\ldots,p_{j},\ldots) $ is a probability distribution vector and $ P $ is transition matrix, Then
+    \begin{equation}
+        \label{stationary distribution matrix}
+         \mathbf{t}=\mathbf{t}P.
+    \end{equation}
+\end{definition}
+
+From \cref{stationary distribution matrix} we see that 1 is a eigenvalue of transition matrix $ P $ and  $ \mathbf{t} $ is eigenvector corresponding
+to 1. Since in transition matrix  such that  $ \sum_{j=0}^{\infty} p_{ij} = 1\ \forall i$ i.e. sum of all elements of row is 1,
+1 must be a eigenvalue.
+
+Now the question aeries is eigenvector corresponding to 1 is a probability vector(sum of all component in 1) or not.
+
+\begin{theorem}[Existence and Uniqueness of Stationary Distribution]
+    An irreducible aperiodic Markov chain belongs to one of the following two classes:
+    \begin{enumerate}
+        \item Either the state are all transient or all null recurrent; in this case $ P^{n}_{ij}\to 0 $ as $ n\to \infty \ \forall i,j $
+            and there exist no stationary distribution.
+        \item Or else, all states are positive recurrent, i.e.
+            \[
+                \pi_{j} = \lim_{n\to \infty}p_{ij}^{n}>0.
+            \]
+            In this case, $ \{\pi_{j},j=0,1,\ldots\} $ is stationary distribution and there exist no other stationary distribution.
+    \end{enumerate}
+\end{theorem}
