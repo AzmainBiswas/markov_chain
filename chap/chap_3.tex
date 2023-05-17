@@ -83,8 +83,8 @@ Now the question aeries is eigenvector corresponding to 1 is a probability vecto
     \]
     Letting $ n\to \infty $ we get,
     \begin{align*}
-        \sum_{j=0}^{M} &\pi_{j}\le 1 \ \forall M.\\ 
-        \sum_{j=0}^{\infty} &\le 1.
+        \sum_{j=0}^{M} \pi_{j}&\le 1 \ \forall M.\\ 
+        \sum_{j=0}^{\infty}\pi_{j} &\le 1.
     \end{align*}
     Now, 
      \[
@@ -138,3 +138,9 @@ Now the question aeries is eigenvector corresponding to 1 is a probability vecto
     If the state are transient or null recurrent and $ \{p_{j},j=0,1,2,\ldots\} $ is a stationary distribution, then \cref{4.3.2} hold and $ p_{ij}^{n}\to 0 $,
     which is clearly impossible. Thus, for case (1), no stationary distribution exists and the proof is complete. 
 \end{proof}
+
+\begin{remark}
+    It is quite intuitive that if the process is started with the limiting probabilities, then the resultant Markov chain is stationary. 
+    For in this case the Markov chain at time 0 is equivalent to an independent Markov chain with the same P matrix at time $ \infty $. 
+    Hence the original chain at time $ t $ is equivalent to the second one at time $\infty + t = \infty$ therefore stationary.
+\end{remark}

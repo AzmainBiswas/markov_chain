@@ -176,10 +176,13 @@ a vector, that is, $t_i = \mathbf{P}(X_0 = i)$. Then the marginal distribution o
 
     \begin{align*}
         \mathbf{P}(X_{n}=j) &= \sum_{i=0}^{N} \mathbf{P}(X_{n},X_{0}=i)\\
-                            &= \sum_{i=0}^{N} \mathbf{P}(X_{0}=i)\mathbf{P}(X_{n}=j|X_{0}=i)  \\
-                            &= \sum_{i=0}^{N} t_{i}p^{n}_{ij} \\
+                            &= \sum_{i=0}^{N} \mathbf{P}(X_{0}=i)\mathbf{P}(X_{n}=j|X_{0}=i)
     \end{align*}
-    Which is the $ j $0th component of  $ \mathbf{t}P^{n} $.
+
+    \begin{equation*}
+                                    = \sum_{i=0}^{N} t_{i}p^{n}_{ij}
+    \end{equation*}
+    Which is the $ j $-th component of  $ \mathbf{t}P^{n} $.
 \end{proof}
 
 \begin{example}[Marginal distribution of 4-state Markov chain]

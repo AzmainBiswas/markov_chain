@@ -25,6 +25,7 @@
 
 \usepackage{enumitem}
 \usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage{tikz}
 \usetikzlibrary{decorations.fractals}
 \usepackage{float}
@@ -54,6 +55,22 @@
 
 \setlength{\headheight}{14.49998pt}
 
+%% for code 
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{language=Python,
+        basicstyle=\ttfamily\small,
+        keywordstyle=\color{blue},
+        commentstyle=\color{green!40!black},
+        stringstyle=\color{orange},
+        showstringspaces=false,
+        breaklines=true,
+        frame=single,
+        %% numbers=left,
+        numberstyle=\tiny\color{gray}
+}
+
 %%% spacing in document %%%
 \usepackage{setspace}
 \onehalfspacing
@@ -70,6 +87,7 @@
 \include{macro}
 \include{chap/chap_1}
 \include{chap/chap_2}
-\include{chap/sec1_chap_2}
+\include{chap/sec1_chap2}
 \include{chap/chap_3}
+\include{chap/chap_4}
 \end{document}
