@@ -1,0 +1,17 @@
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pic/GR0.45.png}
+    \caption{Gambler's Ruin Problem with $( p=0.45 )$}
+\end{figure}
+
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pic/GR0.51.png}
+    \caption{Gambler's Ruin Problem with $( p=0.51 )$}
+\end{figure}
+

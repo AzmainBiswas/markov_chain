@@ -106,52 +106,24 @@ considering $ p_{00} = 1-p $ and $ p_{N N} = p $ as those are last state.
 \subsection{Random Walk in Python}
 We can visualize Random Walk with the help of python.
 
-\begin{figure}[htpb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{pic/Random_Walk_0.6.png}
     \caption{Random Walk for $p=0.6$}
     \label{fig:0.6}
 \end{figure}
-\begin{figure}[htpb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{pic/Random_Walk_0.45.png}
     \caption{Random Walk for $p=0.45$}
     \label{fig:0.45}
 \end{figure}
-\begin{figure}[htpb]
+
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{pic/Random_Walk_0.5.png}
     \caption{Random Walk for $p=0.35$}
     \label{fig:0.5}
 \end{figure}
 
-\newpage
-\begin{centering}
-    \textbf{Code:}
-\begin{lstlisting}
-    import numpy as np
-    import matplotlib.pyplot as plt
-    # define number of steps and starting point
-    NumberOfStape = 1000
-    start = 0
-    p = 0.5 # probability of going up.
-    Prob = [ p, 1 - p ]
-    Position = [ start ]
-    Step = [ 1, -1 ]
-    for i in range(NumberOfStape):
-    rr = np.random.random()
-    if rr < Prob[0]:
-    position = Position[-1] + 1
-    else:
-    position = Position[-1] -1
-    Position.append(position)
-    # for ploting Random Walk
-    fig = plt.figure(figsize=(10,6), dpi=125)
-    plt.plot(Position, linewidth=0.7)
-    plt.xlabel("Time")
-    plt.ylabel("State of Random Walk")
-    plt.title("1D Simple Random Walk")
-    plt.grid(True)
-    plt.show()
-\end{lstlisting}
-\end{centering}
