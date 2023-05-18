@@ -24,7 +24,8 @@ Since the game stops when either $X_{n} = 0$ or $X_{n} = N$, let
 denote the time at which the game stops when $ X_{0} = i $. If $ X_{\tau_{i}} = N $, then the gambler wins of $ X_{\tau_{i}} = 0 $ gambler is ruin.
 
 Let $ P_{i} = \mathbf{P}(X_{\tau_{i}} = N) $ denotes the probability that the gambler wins when $ X_{0} = i $ clearly $ P_{0} = 0 $ and $ P_{N} = 1 $ 
-by definition, we next proceed to compute $P_i$, $1 \le  i \le  N - 1$. By conditioning on the outcome of the initial play of the game, we obtain,
+by definition, (Here $ f_{00}=1  $ and $ f_{N N}=1 $ then state 0 and $ N $ is absorbing state.) 
+we next proceed to compute $P_i$, $1 \le  i \le  N - 1$. By conditioning on the outcome of the initial play of the game, we obtain,
 \[
     P_{i} = pP_{i+1} + qP_{i-1}, \ \ i=1,2,\ldots,N-1,
 \]

@@ -77,15 +77,16 @@ Let,
     f_{ij}=\sum_{n=0}^{\infty} f^{n}_{ij}
 \]
 
-Then, $ f_{ii} $ denote the probability of ever making a transition into step $ j $ when start from state $ i $. 
-If $ j $ is not accessible from $ i $ $ f_{ij} $ will be zero.
+Then, $ f_{ij} $ denote the probability of ever making a transition into step $ j $ when start from state $ i $. 
+If $ j $ is not accessible from $ i $ then $ f_{ij} $ will be zero.
 
 \begin{definition}[Recurrent and Transient state]
     A state $ j $ of a Markov chain is said to be \textit{recurrent}  $ f_{ii}=1 $ and \textit{transient}  if $ f_{ii}<0 $.
 \end{definition}
 
-In other word, if a markov chain start in a recurrent state, there is a guarantee that it will visit that state again in the future
-(eventually return to that state with probability 1).
+In other word, if a Markov chain start in a recurrent state, there is a guarantee that it will visit that state again in the future
+(eventually return to that state with probability 1). Recurrent states are often considered "absorbing" 
+because once the chain enter there, chain will stay there indefinitely.
 
 In contrast, a transient state in a Markov chain is a state where, once you reach it, 
 there is a positive probability that you will never return to that state.
