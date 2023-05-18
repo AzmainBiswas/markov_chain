@@ -103,17 +103,35 @@ considering $ p_{00} = 1-p $ and $ p_{N N} = p $ as those are last state.
     As, $ \pi = \pi P $
 \end{example}
 
-\section{Random Walk in Python}
+\subsection{Random Walk in Python}
 We can visualize Random Walk with the help of python.
 
-\textbf{Code:}
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{pic/Random_Walk_0.6.png}
+    \caption{Random Walk for $p=0.6$}
+    \label{fig:0.6}
+\end{figure}
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{pic/Random_Walk_0.45.png}
+    \caption{Random Walk for $p=0.45$}
+    \label{fig:0.45}
+\end{figure}
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{pic/Random_Walk_0.5.png}
+    \caption{Random Walk for $p=0.35$}
+    \label{fig:0.5}
+\end{figure}
 
+\newpage
+\begin{centering}
+    \textbf{Code:}
 \begin{lstlisting}
     import numpy as np
     import matplotlib.pyplot as plt
-    
     # define number of steps and starting point
-    
     NumberOfStape = 1000
     start = 0
     p = 0.5 # probability of going up.
@@ -127,9 +145,7 @@ We can visualize Random Walk with the help of python.
     else:
     position = Position[-1] -1
     Position.append(position)
-
     # for ploting Random Walk
-    
     fig = plt.figure(figsize=(10,6), dpi=125)
     plt.plot(Position, linewidth=0.7)
     plt.xlabel("Time")
@@ -138,13 +154,4 @@ We can visualize Random Walk with the help of python.
     plt.grid(True)
     plt.show()
 \end{lstlisting}
-
-\newpage
-\textbf{Output: }
-
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=0.8\textwidth]{pic/Random_Walk_0.6.png}
-    \caption{}
-    \label{fig:}
-\end{figure}
+\end{centering}
