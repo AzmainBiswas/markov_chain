@@ -69,9 +69,10 @@ Now the question aeries is eigenvector corresponding to 1 is a probability vecto
         \item Either the state are all transient or all null recurrent; in this case $ P^{n}_{ij}\to 0 $ as $ n\to \infty \ \forall i,j $
             and there exist no stationary distribution.
         \item Or else, all states are positive recurrent, i.e.
-            \[
-                \pi_{j} = \lim_{n\to \infty}p_{ij}^{n}>0.
-            \]
+            \begin{equation}
+                \label{stationart probability}
+                \pi_{j} = \lim_{n\to \infty}p_{ij}^{n}\ge 0.
+            \end{equation}
             In this case, $ \{\pi_{j},j=0,1,\ldots\} $ is stationary distribution and there exist no other stationary distribution.
     \end{enumerate}
 \end{theorem}
@@ -145,4 +146,77 @@ Now the question aeries is eigenvector corresponding to 1 is a probability vecto
     Hence the original chain at time $ t $ is equivalent to the second one at time $\infty + t = \infty$ therefore stationary.
 \end{remark}
 
-\section{Linear Algebric Approach}
+From \cref{stationart probability} we see that for stationary distribution vector $ \pi $ is row vector and 
+\[
+    P^{n}\to 
+    \begin{bmatrix}
+         \pi \\ 
+         \pi \\ 
+         \vdots \\ 
+         \pi
+    \end{bmatrix} 
+    \ \ \ \text{as } n\to \infty
+\]
+
+\section{Reversibility}
+Consider a stationary Markov Chain having transition probability $ p_{ij} $ and the stationary probabilities $ \pi_{i} $ suppose 
+that we construct a sequence of states going backwards in time. That is, starting at time $ n $ consider the sequence of states 
+ $ X_{n}, X_{n-1},X_{n-2},\ldots $. It is also a Markov Chain with probabilities $ p^{*}_{ij} $ define by,
+ \begin{align*}
+     p^{*}_{ij} &= P{X_{m}=j|X_{m+1}=i}\\ 
+                &= \frac{P{X_{m+1}=i|X_{m}=j}}{P{X_{m+1}=i}} \\
+                &= \frac{\pi_{j}p_{ji}}{\pi_{i}}\ \ \text{as it is in stationary state.}\numberthis \label{Reversibility 1st} \\
+ \end{align*}
+ From \cref{Reversibility 1st} we observe that probability of present state $ X_{m+1} $ given past $ X_{m},\ m>0 $ is independent of future.
+Thus the reversed process is also a Markov Chain.
+
+\begin{definition}[Time Reversible Markov Chain]
+    If for any Markov chain $ p^{*}_{ij}=p_{ij} ,\ \forall\ i,\ j$ then  the Markov chain is called time Reversible.
+\end{definition}
+Hence the condition for time Reversibility is 
+\[
+    \pi_{i}p_{ij} =\pi_{j}p_{ji} \ \ \forall\ i, \ j
+\]
+
+\begin{proposition}[Reversible implies stationary]
+    Suppose that $P = (qij)$ is
+a transition matrix of a Markov chain that is reversible with respect to a non-negative vector 
+$\mathbf{s} = (s_1, . . . , s_M)$ whose components sum to 1. Then $s$ is a stationary distribution of the chain.
+\end{proposition}
+\begin{proof}
+    We have 
+    \[
+        \sum_{i=0}^{\infty} s_{i}p_{ij} = \sum_{i=0}^{\infty} s_{j}p_{ji} = s_{j}\sum_{i=1}^{\infty} p_{ji} = s_{j},
+    \]
+    So, $ \mathbf{s} $ is stationary.
+\end{proof}
+
+Consider a graph having a positive number $ w_{ij} $ associate with each edge $ (i,j) $ and suppose that 
+a particle moves vertex to vertex in the following manner if the particle is presently at a vertex  $ i $ then 
+it will move to next vertex j with probability 
+ \begin{equation}
+    \label{probability of weighted graph}
+    p_{ij} = \frac{w_{ij}}{\sum_j w_{ij}}
+\end{equation}
+where $ w_{ij} =0 $ if $ (i,j) $ is not an edge of the graph. This Markov chain is called 
+Random Walk on an edge weighted graph.
+
+An irreducible positive recurrence Markov Chain is stationary if the initial state is chosen according to the
+stationary probabilities. Then we say that such chain is in steady state.
+
+\begin{proposition}
+    Consider a random walk on an edge weighted graph with a finite number of vertices if this Markov chain
+    is irreducible then it is in steady state, time reversible with stationary probability given by
+    \[
+        \pi_{i} = \frac{\sum_{j}w_{ij}}{\sum_{i}\sum_{j}w_{ij}}
+    \]
+\end{proposition}
+\begin{proof}
+    The time Reversibility equation 
+    $
+        \pi_{i}p_{ij} = \pi_{j}p_{ji}
+    $
+    and from \cref{probability of weighted graph} we get,
+    $$ \frac{\pi_{i}w_{ij}}{\sum_{k}w_{ik}} = \frac{\pi_{j}w_{ji}}{\sum_{k}w_{jk}} = c $$
+    or $ \pi_{i} = c \sum_{k}w_{ik} $ doing sum over all $ j $ we get the desire result.
+\end{proof}
