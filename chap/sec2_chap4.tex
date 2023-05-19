@@ -43,12 +43,15 @@ $ P_{3}-P_{2}=(q/p)(P_{2}-P_{1}) = (q/p)^{2}P_{1}$, And hence,
 \begin{align*}
     P_{i+1} -P_{1} &= \sum_{k=1}^{i} (P_{k+1}-P_{k})\\ 
     P_{i+1} -P_{1} &= \sum_{k=1}^{i}\left(\frac{q}{p}\right)^{k}P_{1}  \\
-    P_{i+1} &= P_{1} + \sum_{k=1}^{i}\left(\frac{q}{p}\right)^{k}P_{1} =  P_{1}\sum_{k=0}^{i}\left( \frac{q}{p} \right) \\
-            &=  \begin{cases}
+    P_{i+1} &= P_{1} + \sum_{k=1}^{i}\left(\frac{q}{p}\right)^{k}P_{1} =  P_{1}\sum_{k=0}^{i}\left( \frac{q}{p} \right)
+\end{align*}
+Then we get, 
+\[
+            P_{i+1}  =  \begin{cases}
                 P_{1}\frac{1-\left(\frac{q}{p}\right)^{i+1}}{1-\left(\frac{q}{p}\right)} \ \text{ if } p\neq q;\\ 
                 P_{1}(i+1) \ \text{ if } p=q=0.5
-            \end{cases} \numberthis \label{1st recurtion}
-\end{align*}
+            \end{cases} \numberthis
+\]
 
 Choosing $ i=N-1 $ we get and using  $ P_{N} =1 $ we get,
 \[
@@ -107,7 +110,13 @@ To see Ellen will ever be infinity rich we make  $ N\to\infty $ and started gamb
 
 
 \subsection{Gambler's Ruin Problem in python}
-We can nicely make a simulation of Gambler's ruin problem.
+We can nicely make a simulation of Gambler's ruin problem And observe the output of it.
+
+\textbf{Observation: }
+\begin{itemize}
+    \item When $ p=0.45 $ The Gambler will be ruined after 384 games.
+    \item When $ p=0.51 $ The Gambler will reach his fortune after 4412 games.
+\end{itemize}
 
 
 \begin{figure}[H]
