@@ -147,3 +147,49 @@ For the above example
     \end{bmatrix} 
 \]
 Hence it is approximate Stationary Distribution.
+
+\section{Text Generator}
+Markov Chain is used in language modeling, text generation, and speech recognition. Google search, Google’s Smart Compose on Gmail are just a few examples.
+Using the probabilistic properties of Markov chains to generate new text based on patterns observed in a given training text.
+
+\textbf{Here a basic outline of how to build a text generator using the markov chain:}
+\begin{itemize}
+    \item \textbf{Data Processing:} Start by preparing your training text data. 
+        Remove any unnecessary characters or formatting and split the text into individual nodes.
+    \item \textbf{Building the Transition Matrix:} Using the given data construct the transition matrix that represent the probability to go 
+        one node to another node.
+    \item \textbf{Generating New Text:} To generate random text start with the initial node and Using transition matrix select the next node. 
+        Repeating this we are able to generate a text.
+\end{itemize}
+
+Using the complete work William Shakespeares as a sample I able to make a text generator in python using the concept of Markov chain. Here is some output:
+
+\begin{tcolorbox}[colback=white, colframe=black, sharp corners, boxrule=0.5pt, left=10pt, right=10pt, top=10pt, bottom=10pt]
+    \small{COMMERCIALLY. PROHIBITED COMMERCIAL DISTRIBUTION INCLUDES BY ANY SERVICE THAT CHARGES FOR DOWNLOAD TIME OR USED COMMERCIALLY. PROHIBITED COMMERCIAL DISTRIBUTION INCLUDES BY}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white, colframe=black, sharp corners, boxrule=0.5pt, left=10pt, right=10pt, top=10pt, bottom=10pt]
+    Stones have seen More free thee without more bondage happy, my cousin's hands, and is but it will come; for pulling
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white, colframe=black, sharp corners, boxrule=0.5pt, left=10pt, right=10pt, top=10pt, bottom=10pt]
+Dead shepherd, tell you live. But canst not for fashion of more turn their ends Of the worst of thunder heard
+\end{tcolorbox}
+
+\section{Other Applications}
+Markov chain has very wide range of usefulness. It has use case in many fields like Data Science, AI (Artificial Intelligence), Finance etcetera.
+
+\begin{enumerate}
+    \item \textbf{Image and Signal Processing:}  Markov Random Field  a type of Markov chain, are used in image segmentation, denoising, and object recognition. 
+        MRF models capture the spatial dependencies between neighboring pixels or image regions.
+    \item \textbf{Finance and Economics:} Markov chains are used in modeling financial markets and analyzing economic systems. 
+        it can be used to model stock prices, interest rates, and exchange rates. Markov models are also used for portfolio optimization and risk analysis.
+    \item \textbf{Queueing Theory:} Markov chains are extensively used in the study of queueing systems. 
+        it helps analyze the behavior of waiting lines, arrival and service processes, and queue lengths. 
+        Applications include traffic engineering, telecommunications, and service operations.
+    \item \textbf{Artificial Intelligence and Machine Learning:} Markov chains are utilized in reinforcement learning algorithms, 
+        where an agent learns to make decisions based on a sequence of states and actions. 
+        Markov decision processes (MDPs) and partially observable Markov decision processes (POMDPs) are used in planning and decision-making problems.
+    \item \textbf{Genetics and Molecular Biology:} Markov chains are used to model and analyze biological sequences, such as DNA and protein sequences. 
+        it is used in sequence alignment algorithms, predicting protein structures, and identifying hidden patterns in genomic data. 
+\end{enumerate}
