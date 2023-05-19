@@ -56,18 +56,17 @@
 \setlength{\headheight}{14.49998pt}
 
 %% for code 
-\usepackage{listings}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
-
+\usepackage{listings}
 \lstset{language=Python,
         basicstyle=\ttfamily\small,
         %% keywordstyle=\color{blue},
         commentstyle=\color{black},
         %% stringstyle=\color{orange},
         showstringspaces=false,
-        %% breaklines=true,
-        %% frame=single,
+        breaklines=true,
+        frame=single,
         %% numbers=left,
         %% numberstyle=\tiny\color{gray}
 }
@@ -84,6 +83,7 @@
 
 \maketitle
 \tableofcontents
+\listoffigures
 
 \include{macro}
 \include{chap/chap_1}
@@ -93,4 +93,6 @@
 \include{chap/chap_4}
 \include{chap/sec2_chap4}
 \include{chap/application}
+\appendix
+\include{chap/appendix}
 \end{document}

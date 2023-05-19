@@ -52,7 +52,7 @@ i.e. two states $ i \ \&\ j $ belong to same class if and only if $ i\longleftri
               (4) edge [bend left] node [right] {1} (5)
               (5) edge [bend left] node {1} (4);
     \end{tikzpicture}
-    \caption{}
+    \caption{communication classes}
     \label{example of communication}
 \end{figure}
 
@@ -85,8 +85,7 @@ If $ j $ is not accessible from $ i $ then $ f_{ij} $ will be zero.
 \end{definition}
 
 In other word, if a Markov chain start in a recurrent state, there is a guarantee that it will visit that state again in the future
-(eventually return to that state with probability 1). Recurrent states are often considered "absorbing" 
-because once the chain enter there, chain will stay there indefinitely.
+(eventually return to that state with probability 1).
 
 In contrast, a transient state in a Markov chain is a state where, once you reach it, 
 there is a positive probability that you will never return to that state.
@@ -139,3 +138,51 @@ i.e. if you begin in a transient state, there's a chance you won't return there.
 \begin{proposition}
      In an irreducible Markov chain with a finite state space, all states are recurrent.
 \end{proposition}
+
+\begin{definition}[Absorbing State]
+    A state $ i $ of Markov chain is called absorbing it  $ p_{ii} = 1 $ that is, it is impossible to leave 
+    the state. 
+\end{definition}
+
+A Markov Chain is absorbing if it has at least one absorbing state.
+
+For example consider the Markov chain shown in \cref{Absorving markov chain}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[->, >=stealth, auto, very thick, node distance = 2cm, state/.style={circle, draw=black, fill=black!5, very thick, minimum size = 10mm}]
+        \node[state] (0) {0};
+        \node[state] (1) [right of=0] {1};
+        \node[state] (2) [right of=1] {2};
+        \node[state] (3) [below right of=2] {3};
+
+        \path (0) edge [loop above] (0)
+        (1) edge [] (0)
+        (1) edge [loop above] (1)
+        (1) edge [bend left] (2)
+        (2) edge [bend left] (1)
+        (2) edge [] (3)
+        (3) edge [bend left] (1);
+    \end{tikzpicture}
+    \centering
+    \caption{Absorbing Markov Chain}
+    \label{Absorving markov chain}
+\end{figure}
+
+In this example all the arrows has equal probability. Then the transition matrix become:
+\[
+    P=
+    \begin{bmatrix}
+        1 & 0 & 0 & 0 \\ 
+        \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 \\ 
+        0 & 0 & \frac{1}{2} & \frac{1}{2} \\ 
+        0 & 0 & 1 & 0
+    \end{bmatrix} 
+\]
+
+Let initial probability vector 
+$ \mathbf{t}= 
+    \begin{bmatrix}
+        0.05 & 0.2 & 0.45 & 0.3
+    \end{bmatrix} 
+$
