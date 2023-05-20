@@ -40,6 +40,7 @@
 }
 
 %%%% hyperref %%%%
+\usepackage{url}
 \usepackage{hyperref} % for link
 \hypersetup{
     colorlinks=true,
@@ -81,6 +82,7 @@
 
 \begin{document}
 
+\maketitle
 \tableofcontents
 
 \include{macro}
@@ -93,4 +95,7 @@
 \include{chap/application}
 \appendix
 \include{chap/appendix}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{ref}
 \end{document}
