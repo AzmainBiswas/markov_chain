@@ -66,7 +66,7 @@ Now the question aeries is eigenvector corresponding to 1 is a probability vecto
 \begin{theorem}[Existence and Uniqueness of Stationary Distribution]
     An irreducible aperiodic Markov chain belongs to one of the following two classes:
     \begin{enumerate}
-        \item Either the state are all transient or all null recurrent; in this case $ P^{n}_{ij}\to 0 $ as $ n\to \infty \ \forall i,j $
+        \item Either the state are all transient or all null recurrent; in this case $ p^{n}_{ij}\to 0 $ as $ n\to \infty \ \forall i,j $
             and there exist no stationary distribution.
         \item Or else, all states are positive recurrent, i.e.
             \begin{equation}
@@ -163,9 +163,9 @@ Consider a stationary Markov Chain having transition probability $ p_{ij} $ and 
 that we construct a sequence of states going backwards in time. That is, starting at time $ n $ consider the sequence of states 
  $ X_{n}, X_{n-1},X_{n-2},\ldots $. It is also a Markov Chain with probabilities $ p^{*}_{ij} $ define by,
  \begin{align*}
-     p^{*}_{ij} &= P{X_{m}=j|X_{m+1}=i}\\ 
-                &= \frac{P{X_{m+1}=i|X_{m}=j}}{P{X_{m+1}=i}} \\
-                &= \frac{\pi_{j}p_{ji}}{\pi_{i}}\ \ \text{as it is in stationary state.}\numberthis \label{Reversibility 1st} \\
+     p^{*}_{ij} &= P(X_{m}=j|X_{m+1}=i)\\ 
+                &= \frac{P(X_{m+1}=i|X_{m}=j)}{P(X_{m+1}=i)} \\
+                &= \frac{\pi_{j}p_{ji}}{\pi_{i}}\ \ \text{as it is in stationary state.}\numberthis \label{Reversibility 1st}
  \end{align*}
  From \cref{Reversibility 1st} we observe that probability of present state $ X_{m+1} $ given past $ X_{m},\ m>0 $ is independent of future.
 Thus the reversed process is also a Markov Chain.

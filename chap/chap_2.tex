@@ -17,7 +17,7 @@ If $X_n = i $ we say that the process is in $i $th state at time $n$.
 In the definition \cref{markov property} may be interpreted as for Markov Chain, the conditional distribution of any future state $ X_{n+1} $, given the past states  $ X_0, X_1,\ldots, X_{n-1} $  and the present state $ X_n $, is independent of the past and only depend on the present state.
 This property is called \textit{Markovian Property}. In other word for markov chain predicting the future we only need information about the present state.
 
-\textbf{Note:} Notice that Assumption we are making for markov chain to forget the past as long as present in known is very strong assumption.
+\textbf{Note:} Assumption we are making for markov chain to forget the past as long as present in known is very strong assumption.
 
 \section{Homogeneous Markov Chain}
 
@@ -28,11 +28,11 @@ This property is called \textit{Markovian Property}. In other word for markov ch
 The quantity $ \mathbf{P}(X_{n+1}=j|X_n=i) $ is called the \textit{transition probability} from state $i$ to state $j$. For homogeneous Markov Chain 
 we can specify the transition probabilities $ \mathbf{P}(X_{n+1}=j|X_{n}=i) $ by a sequence of value $ p_{xy} = \mathbf{P}(X_{n+1}=y|X_{n}=x) $.
 
-For the case of finite state Markov chain, say the state space is $ \{1,2,3,\ldots\} $. Then the transition probabilities are $ p_{ij}, $ 
+For the case of finite state Markov chain, say the state space is $ \{1,2,3,\ldots\,N\}$. Then the transition probabilities are $ p_{ij}, $ 
 $ 1\le i,j \le N $ for transition from state i to state j. The $ N\times N $ matrix  $ P = (p_{ij})_{N\times N} $ is called The
 \textit{Transition Matrix} of chain. Since probabilities are nonnegative and since the process must make a transition into some state, we have
 \[
-    P_{ij}\ge 0,\ \ i,j\ge 0,\ \text{and } \sum_{j=0}^{N}P_{ij} = 1,\ \  \forall\ i=0,1,2,\ldots.
+    p_{ij}\ge 0,\ \ i,j\ge 0,\ \text{and } \sum_{j=0}^{N}p_{ij} = 1,\ \  \forall\ i=0,1,2,\ldots.
 \]
 
 For, infinite state markov chain the probability transition matrix will be infinite order. 
@@ -41,7 +41,7 @@ Then,
     P = 
     \begin{bmatrix}
         p_{00} & p_{01} & p_{02} & \ldots \\
-        p_{11} & P_{12} & p_{12} & \ldots \\
+        p_{10} & P_{11} & p_{12} & \ldots \\
         \vdots & \vdots & \vdots & \ldots \\ 
         p_{i0} & \ldots & p_{ij} & \ldots \\
         \vdots & \vdots & \vdots & \ddots 
