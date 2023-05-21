@@ -1,7 +1,7 @@
 \section{The Gambler's Ruin Problem}
 Consider a gambler who starts with an initial fortune and then on each successive gamble
 either wins $\$1$ or loses $\$1$ independent of the past with probabilities $p$ and $q = 1-p$ respectively.
-The gambler’s objective is to reach a total fortune of $\$N$, without first getting ruined (running out of money). If the gambler succeeds,
+The gambler's objective is to reach a total fortune of $\$N$, without first getting ruined (running out of money). If the gambler succeeds,
 then the gambler is said to win the game. In any case, the gambler stops playing after winning
 or getting ruined, whichever happens first. Let the gambler starts with $\$i$ where $0 < i < N$.
 
@@ -19,12 +19,12 @@ will either wins $ \$N $ or go broke.
 
 Since the game stops when either $X_{n} = 0$ or $X_{n} = N$, let
 \[
-    \tau_{i} = \min{n\ge 0: X_{n}\in\{0,N\}|X_{0}=i} 
+    \tau_{i} = \min{\{n\ge 0: X_{n}\in\{0,N\}|X_{0}=i\}} 
 \]
 denote the time at which the game stops when $ X_{0} = i $. If $ X_{\tau_{i}} = N $, then the gambler wins of $ X_{\tau_{i}} = 0 $ gambler is ruin.
 
 Let $ P_{i} = \mathbf{P}(X_{\tau_{i}} = N) $ denotes the probability that the gambler wins when $ X_{0} = i $ clearly $ P_{0} = 0 $ and $ P_{N} = 1 $ 
-by definition, (Here $ f_{00}=1  $ and $ f_{N N}=1 $ then state 0 and $ N $ is absorbing state.) 
+by definition, (Here $ p_{00}=1  $ and $ p_{N N}=1 $ then state 0 and $ N $ is absorbing state.) 
 we next proceed to compute $P_i$, $1 \le  i \le  N - 1$. By conditioning on the outcome of the initial play of the game, we obtain,
 \[
     P_{i} = pP_{i+1} + qP_{i-1}, \ \ i=1,2,\ldots,N-1,
@@ -34,7 +34,7 @@ Since, $ p + q = 1 $ we get,
     pP_{i} + qP_{i} &= pP_{i+1} + qP_{i-1}\\ 
     P_{i+1} - P_{i} &= \frac{q}{p}(P_{i}-P_{i-1}), \ \ 0<i<N,
 \end{align*}
-In particular, $ P_{2}-p_{1}=(q/p)(P_{1}-P_{0})=(q/p)P_{1} $ (since, $ P_{0} = 0 $) So that,\\ 
+In particular, $ P_{2}-P_{1}=(q/p)(P_{1}-P_{0})=(q/p)P_{1} $ (since, $ P_{0} = 0 $) So that,\\ 
 $ P_{3}-P_{2}=(q/p)(P_{2}-P_{1}) = (q/p)^{2}P_{1}$, And hence,
 \begin{equation*}
     P_{i+1} -P_{i} = \left( \frac{q}{p} \right)^{i}P_{1}\ \  0<i<N.
@@ -43,7 +43,7 @@ $ P_{3}-P_{2}=(q/p)(P_{2}-P_{1}) = (q/p)^{2}P_{1}$, And hence,
 \begin{align*}
     P_{i+1} -P_{1} &= \sum_{k=1}^{i} (P_{k+1}-P_{k})\\ 
     P_{i+1} -P_{1} &= \sum_{k=1}^{i}\left(\frac{q}{p}\right)^{k}P_{1}  \\
-    P_{i+1} &= P_{1} + \sum_{k=1}^{i}\left(\frac{q}{p}\right)^{k}P_{1} =  P_{1}\sum_{k=0}^{i}\left( \frac{q}{p} \right)
+    P_{i+1} &= P_{1} + \sum_{k=1}^{i}\left(\frac{q}{p}\right)^{k}P_{1} =  P_{1}\sum_{k=0}^{i}\left( \frac{q}{p} \right)^k
 \end{align*}
 Then we get, 
 \[
@@ -85,7 +85,7 @@ i.e. if $p \le 0.5$ (each gamble is not in his favor), then with probability one
 
 \begin{example}[Random walk hitting probabilities]
     Ellen bought a share of stock for $\$10$, and it is believed that the stock price moves (day by day) 
-    as a simple random walk with $p = 0.55$. What is the probability that Ellen’s
+    as a simple random walk with $p = 0.55$. What is the probability that Ellen's
     stock reaches the high value of $\$15$ before the low value of $\$5$? 
 
     What is the probability that Ellen will become infinitely rich?
@@ -109,7 +109,7 @@ To see Ellen will ever be infinity rich we make  $ N\to\infty $ and started gamb
 \]
 
 
-\subsection{Gambler's Ruin Problem in python}
+\subsection{Gambler's Ruin Problem Simulation}
 We can nicely make a simulation of Gambler's ruin problem And observe the output of it.
 
 \textbf{Observation: }
