@@ -7,35 +7,35 @@
     if it takes value  the state space $ \mathbf{S} $, and for every
     $n\ge 0$ it satisfy the property
     \begin{equation}
-        \label{markov property}
+        \label{Markov property}
          \mathbf{P}( X_{n+1} = j | X_n =i , X_{n-1} = i_{n-1}, \ldots, X_0 = i_0 ) = \mathbf{P}( X_{n+1} = j | X_n =i )
     \end{equation}
 \end{definition}
 
 Unless otherwise mentioned we take the state space $ \mathbf{S} $ to be $\{0, 1, 2, 3, \ldots\ \} $. 
 If $X_n = i $ we say that the process is in $i $th state at time $n$.
-In the definition \cref{markov property} may be interpreted as for Markov Chain, the conditional distribution of any future state $ X_{n+1} $, given the past states  $ X_0, X_1,\ldots, X_{n-1} $  and the present state $ X_n $, is independent of the past and only depend on the present state.
-This property is called \textit{Markovian Property}. In other word for markov chain predicting the future we only need information about the present state.
+In the definition \cref{Markov property} may be interpreted as for Markov Chain, the conditional distribution of any future state $ X_{n+1} $, given the past states  $ X_0, X_1,\ldots, X_{n-1} $  and the present state $ X_n $, is independent of the past and only depend on the present state.
+This property is called \textit{Markovian Property}. In other word for Markov chain predicting the future we only need information about the present state.
 
-\textbf{Note:} Assumption we are making for markov chain to forget the past as long as present in known is very strong assumption.
+\textbf{Note:} Assumption we are making for Markov chain to forget the past as long as present in known is very strong assumption.
 
 \section{Homogeneous Markov Chain}
 
 \begin{definition}[Homogeneous Markov Chain]
-    We say a markov chain $ \{ X_n,n\ge 0 \} $ is homogeneous if $ \mathbf{P}(X_{n+1}=j|X_n=i)=\mathbf{P}(X_2=j|X_1=i) \ \forall n>0 $. 
+    We say a Markov chain $ \{ X_n,n\ge 0 \} $ is homogeneous if $ \mathbf{P}(X_{n+1}=j|X_n=i)=\mathbf{P}(X_2=j|X_1=i) \ \forall n>0 $. 
 \end{definition}
 
 The quantity $ \mathbf{P}(X_{n+1}=j|X_n=i) $ is called the \textit{transition probability} from state $i$ to state $j$. For homogeneous Markov Chain 
-we can specify the transition probabilities $ \mathbf{P}(X_{n+1}=j|X_{n}=i) $ by a sequence of value $ p_{xy} = \mathbf{P}(X_{n+1}=y|X_{n}=x) $.
+we can specify the transition probabilities $ \mathbf{P}(X_{n+1}=j|X_{n}=i) $ by a sequence of value $ p_{ij} = \mathbf{P}(X_{n+1}=j|X_{n}=i) $.
 
-For the case of finite state Markov chain, say the state space is $ \{1,2,3,\ldots\,N\}$. Then the transition probabilities are $ p_{ij}, $ 
-$ 1\le i,j \le N $ for transition from state i to state j. The $ N\times N $ matrix  $ P = (p_{ij})_{N\times N} $ is called The
+Then the transition probabilities are $ p_{ij}, $ 
+$ 1\le i,j \le \infty $ for transition from state i to state j. The matrix  $ P = (p_{ij}) $ is called The
 \textit{Transition Matrix} of chain. Since probabilities are nonnegative and since the process must make a transition into some state, we have
 \[
-    p_{ij}\ge 0,\ \ i,j\ge 0,\ \text{and } \sum_{j=0}^{N}p_{ij} = 1,\ \  \forall\ i=0,1,2,\ldots.
+    p_{ij}\ge 0,\ \ i,j\ge 0,\ \text{and } \sum_{j=0}^{\infty}p_{ij} = 1,\ \  \forall\ i=0,1,2,\ldots.
 \]
 
-For, infinite state markov chain the probability transition matrix will be infinite order. 
+For, infinite state Markov chain the probability transition matrix will be infinite order. 
 Then,
 \[
     P = 
@@ -86,16 +86,16 @@ to be the probability that a process in state $i$ will be in state $j$ after $n$
     p^{n}_{ij}=\mathbf{P}(X_{n+m}=j|X_{m}=i), \ n\ge 0, \ i,j\ge 0.
 \]
 
-By definition of markov chain we get,
+By definition of Markov chain we get,
 \begin{align*}
-    p_{ij}^{n+m} &= \mathbf{P}(X_{n+m}=j|X_{0}=i) \\ 
+    p_{ij}^{(n+m)} &= \mathbf{P}(X_{n+m}=j|X_{0}=i) \\ 
                  &= \sum_{k=0}^{\infty}\mathbf{P}(X_{n+m}=j,X_{n}=k|X_{0} = i)\text{ (By theorem of total probability)} \\
                  &= \sum_{k=0}^{\infty}\mathbf{P}(X_{n+m}=j|X_{n}=k,X_{0} = i)\mathbf{P}(X_{n}=k|X_{0}=i) \\
                  &= \sum_{k=0}^{\infty}\mathbf{P}(X_{n+m}=j|X_{n}=k)\mathbf{P}(X_{n}=k|X_{0}=i) \\
 \end{align*}
 Then,
 \begin{align*}
-     p_{ij}^{n+m} = \sum_{k=0}^{\infty}p_{kj}^{m}p_{ik}^{n}. \numberthis \label{Chapman-Kolmogorov equation} \\
+     p_{ij}^{(n+m)} = \sum_{k=0}^{\infty}p_{kj}^{m}p_{ik}^{n}. \numberthis \label{Chapman-Kolmogorov equation} \\
 \end{align*}
 If we take $ n=m=1 $. Then
 \begin{equation}
@@ -104,20 +104,20 @@ If we take $ n=m=1 $. Then
 \end{equation}
 the above expression is $ (i,j) $ element of $ P^{2} $ matrix then we see \cref{2-step probability} in matrix form,
 \[
-    P^{2}=P*P
+    P^{2}=P\cdot P
 \]
 Hence, \cref{Chapman-Kolmogorov equation} can also written in matrix form,
 \[
-    P^{n+m}=P^{n}*P^{m}
+    P^{(n+m)}=P^{n}\cdot P^{m}
 \]
-Where $ P^{n}\ \&\ P^{m} $ are the n-step and m-step transition matrix respectively.
+Where $ P^{n}\ \text{ and } P^{m} $ are the $n$-step and $m$-step transition matrix respectively.
 
 \begin{example}[Transition matrix of 4-state Markov chain]
     Consider the 4-state
-    Markov chain depicted in \cref{4 step transition matrix example} When no probabilities are written over the
+    Markov chain depicted in Fig \ref{4-step transition matrix example} When no probabilities are written over the
     arrows, as in this case, it means all arrows originating from a given state are equally
     likely. For example, there are 3 arrows originating from state 1, so the transitions
-    $1 \to 3$, $1 \to 2$, and $1 \to 1$ all have probability 1/3. Therefore the transition matrix of the chain is.
+    $1 \to 3$, $1 \to 2$, and $1 \to 1$ all have probability 1/3. Therefore, the transition matrix of the chain is.
 
     \begin{figure}[ht]
         \centering
@@ -136,8 +136,8 @@ Where $ P^{n}\ \&\ P^{m} $ are the n-step and m-step transition matrix respectiv
                 (4) edge [bend left] (1)
                 (4) edge [loop left] (4);
         \end{tikzpicture}
-        \caption{Example of A 4 state markov chain}
-        \label{4 step transition matrix example}
+        \caption{Example of a 4-state Markov chain}
+        \label{4-step transition matrix example}
     \end{figure}
 
     \[
@@ -189,7 +189,7 @@ a vector, that is, $t_i = \mathbf{P}(X_0 = i)$. Then the marginal distribution o
 \end{proof}
 
 \begin{example}[Marginal distribution of 4-state Markov chain]
-    Again consider the 4-state Markov chain in \cref{4 step transition matrix example}. 
+    Again consider the 4-state Markov chain in Fig. \ref{4-step transition matrix example}. 
     Suppose the initial conditions are $ \mathbf{t} = (1/4,1/4,1/4,1/4) $, Let $ X_{n} $ be the position of the chain at time $ n $. 
     Then distribution of  $ X_{1} $ is
     \begin{align*}

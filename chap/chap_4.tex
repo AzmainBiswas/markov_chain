@@ -1,4 +1,4 @@
-\chapter{Some Example of Markov Chain}
+\chapter{Some Examples of Markov Chain}
 \section{The Simple Random Walk}
 The markov chain whose state space is the set of all integers $ \mathds{Z} $ and has transition probabilites
 \[
@@ -55,7 +55,7 @@ if and only if
 However, $ 4p(1-p)\le 1 $ with equality holding if and only if $ p=\frac{1}{2} $. Hence $ \sum_{n=1}^{\infty} p^{n}_{00}=\infty $ 
 if and only if $ p=\frac{1}{2} $. Thus, the chain is recurrent with $ p=\frac{1}{2} $ and transient when  $ p\neq \frac{1}{2} $.
 
-Hence if $ p= 1/2 $ then the process random walk visit state 0 again and again infinitely many time and if  $ p \neq 1/2 $ it may or may 
+Hence, if $ p= 1/2 $ then the process random walk visit state 0 again and again infinitely many time and if  $ p \neq 1/2 $ it may or may 
 not visit state 0.
 
 If we consider random walk has  $ N+1 $ step i.e.  $ \{0,1,\ldots,N\} $ is state space of random walk.
@@ -65,7 +65,7 @@ Then, The transition matrix will be.
     \begin{bmatrix}
         1-p & p & 0 & 0 & \ldots\\ 
         1-p & 0 & p & 0 & \ldots\\ 
-        0 & 1-p & 0 & 1-p & \ldots\\ 
+        0 & 1-p & 0 & p & \ldots\\ 
         \vdots & \vdots & \vdots & \vdots & \ddots
     \end{bmatrix}_{(N+1)\times(N+1)}
 \]
