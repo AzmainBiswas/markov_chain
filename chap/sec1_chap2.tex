@@ -1,7 +1,7 @@
 \section{Classification of states}
 \begin{definition}[]
     We say that state $j$ is \textit{accessible} from state $i$, written as $ i \to j $, If  $ p^{n}_{ij}>0 $ for some $ n\ge 0 $.\\ 
-    We assume every state is accessible from itself since,
+    We assume every state is accessible from itself since
     \[
         p^{0}_{ii} = \mathbf{P}(X_{0}=i|X_{0}=i) = 1.
     \]
@@ -22,12 +22,12 @@ Communication is an equivalence relation. That means that,
     \item if  $ i\longleftrightarrow j $ and  $ j\longleftrightarrow k $ then  $ i\longleftrightarrow k $.
 \end{enumerate}
 
-First two properties are obvious from definition, let for some $n,\ m \ge 0$ in  then, $ p^{n}_{ij},\ p^{m}_{jk}>0 $ by assumption.
+First two properties are obvious from definition, let for some $n,\ m \ge 0$ then, $ p^{n}_{ij},\ p^{m}_{jk}>0 $ by assumption.
 By Chapman-Kolmogorov equatation.
 \[
-    p^{(n+m)}_{ik} = \sum_{r=0}^{\infty} p^{n}_{ir}p^{m}_{rk} \ge p^{n}_{ij}p^{m}_{jk}>0.
+    p^{n+m}_{ik} = \sum_{r=0}^{\infty} p^{n}_{ir}p^{m}_{rk} \ge p^{n}_{ij}p^{m}_{jk}>0.
 \]
-Hence state k is accessible from state i. By same we can see tha converse.
+Hence state k is accessible from state i. By same one can prove that $i$ is also accessible from $K$.
 
 Therefore, the states of a Markov chain can be partitioned into communicating classes such that 
 only members of the same class communicate with each other. 
@@ -52,7 +52,7 @@ i.e. two states $ i \ \&\ j $ belong to same class if and only if $ i\longleftri
               (4) edge [bend left] node [right] {1} (5)
               (5) edge [bend left] node {1} (4);
     \end{tikzpicture}
-    \caption{communication classes}
+    \caption{Communication classes}
     \label{example of communication}
 \end{figure}
 
@@ -72,7 +72,7 @@ i.e.
 \[
     f^{n}_{ij} = \mathbf{P}(X_{n},X_{k}\neq j, k=1,2,\ldots n-1|X_{0}=i).
 \]
-Let,
+Let
 \[
     f^*_{ij}=\sum_{n=0}^{\infty} f^{n}_{ij}
 \]

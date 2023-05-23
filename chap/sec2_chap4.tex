@@ -29,12 +29,12 @@ we next proceed to compute $P_i$, $1 \le  i \le  N - 1$. By conditioning on the 
 \[
     P_{i} = pP_{i+1} + qP_{i-1}, \ \ i=1,2,\ldots,N-1,
 \]
-Since, $ p + q = 1 $ we get, 
+Since $ p + q = 1 $ we get, 
 \begin{align*}
     pP_{i} + qP_{i} &= pP_{i+1} + qP_{i-1}\\ 
     P_{i+1} - P_{i} &= \frac{q}{p}(P_{i}-P_{i-1}), \ \ 0<i<N,
 \end{align*}
-In particular, $ P_{2}-P_{1}=(q/p)(P_{1}-P_{0})=(q/p)P_{1} $ (since, $ P_{0} = 0 $) So that,\\ 
+In particular, $ P_{2}-P_{1}=(q/p)(P_{1}-P_{0})=(q/p)P_{1} $ (since $ P_{0} = 0 $) So that,\\ 
 $ P_{3}-P_{2}=(q/p)(P_{2}-P_{1}) = (q/p)^{2}P_{1}$, And hence,
 \begin{equation*}
     P_{i+1} -P_{i} = \left( \frac{q}{p} \right)^{i}P_{1}\ \  0<i<N.

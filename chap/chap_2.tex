@@ -88,14 +88,14 @@ to be the probability that a process in state $i$ will be in state $j$ after $n$
 
 By definition of Markov chain we get,
 \begin{align*}
-    p_{ij}^{(n+m)} &= \mathbf{P}(X_{n+m}=j|X_{0}=i) \\ 
+    p_{ij}^{n+m} &= \mathbf{P}(X_{n+m}=j|X_{0}=i) \\ 
                  &= \sum_{k=0}^{\infty}\mathbf{P}(X_{n+m}=j,X_{n}=k|X_{0} = i)\text{ (By theorem of total probability)} \\
                  &= \sum_{k=0}^{\infty}\mathbf{P}(X_{n+m}=j|X_{n}=k,X_{0} = i)\mathbf{P}(X_{n}=k|X_{0}=i) \\
                  &= \sum_{k=0}^{\infty}\mathbf{P}(X_{n+m}=j|X_{n}=k)\mathbf{P}(X_{n}=k|X_{0}=i) \\
 \end{align*}
 Then,
 \begin{align*}
-     p_{ij}^{(n+m)} = \sum_{k=0}^{\infty}p_{kj}^{m}p_{ik}^{n}. \numberthis \label{Chapman-Kolmogorov equation} \\
+     p_{ij}^{n+m} = \sum_{k=0}^{\infty}p_{kj}^{m}p_{ik}^{n}. \numberthis \label{Chapman-Kolmogorov equation} \\
 \end{align*}
 If we take $ n=m=1 $. Then
 \begin{equation}
@@ -108,7 +108,7 @@ the above expression is $ (i,j) $ element of $ P^{2} $ matrix then we see \cref{
 \]
 Hence, \cref{Chapman-Kolmogorov equation} can also written in matrix form,
 \[
-    P^{(n+m)}=P^{n}\cdot P^{m}
+    P^{n+m}=P^{n}\cdot P^{m}
 \]
 Where $ P^{n}\ \text{ and } P^{m} $ are the $n$-step and $m$-step transition matrix respectively.
 
