@@ -5,23 +5,20 @@
 \usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
 \usepackage[english]{babel}
 
-
 %% theorem, lemma, proof, etc. %%
 %% for unnumbed use \newtheorem* and delete section in [---] %%
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[chapter]
 
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
 
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
 
-\theoremstyle{definition}
-\newtheorem{example}{Example}[section]
-%%% theorem %%
+%%\thetheorem %%
 
 \usepackage{enumitem}
 \usepackage{graphicx}
@@ -101,3 +98,4 @@
 \appendix
 \include{chap/appendix}
 \end{document}
+
